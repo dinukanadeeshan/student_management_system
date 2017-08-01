@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="574" leftMargin="21" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ST_RANK" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select type, work from sibiline s, sibilinetype st where s.Student_rank = $P{ST_RANK} and s.sibilinetype_id = st.id]]>
+	</queryString>
+	<field name="type" class="java.lang.String"/>
+	<field name="work" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="135" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="0" width="156" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{work}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
